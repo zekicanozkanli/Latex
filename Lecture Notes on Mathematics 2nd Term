@@ -1,0 +1,78 @@
+\documentclass[twoside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amsthm, graphicx, geometry, lastpage, fancyhdr, hyperref, pgfplots, svg}
+\usepackage[Bjarne]{fncychap}
+
+\newgeometry{
+top=0.75in,
+bottom=0.75in,
+outer=0.75in,
+inner=1.5in,
+}
+
+\pagestyle{fancy}
+
+\lhead{Mathematical Notes}
+\cfoot{\thepage\ of \pageref{LastPage}}
+\pgfplotsset{compat=1.18, width=10cm}
+
+\newtheorem{definition}{Def}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{rules}{Rule}[section]
+
+\theoremstyle{definition}
+\newtheorem{example}{Ex.}[section]
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{3cm}
+            
+        \Huge
+        \textbf{Lecture Notes}
+        
+        \vspace{0.25cm}
+
+        \LARGE
+        on Mathematics
+            
+        \vspace{0.25cm}
+        \Large
+        $2^{nd}$ Term
+            
+        \vspace{4.5cm}
+
+        \LARGE
+        \textbf{Zeki Can Özkanlı}
+
+        \vspace{4.5cm}
+
+        \large
+        Last Update: 12 April 2023
+                
+        \vfill
+            
+        \vspace{0.8cm}
+                        
+        \Large
+        METU Mathematics '22
+        
+        \vspace{.5cm}
+        
+        \large
+        Creation Date: 10 April 2023
+    \end{center}
+\end{titlepage}
+
+\tableofcontents
+
+\include{CalculusII}
+
+\rhead{Discrete Mathematics}
+
+\include{Discerete}
+
+\end{document}
+
