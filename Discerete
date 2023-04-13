@@ -1,0 +1,166 @@
+\chapter{Discrete Mathematics}
+
+\section{Fundamental Principles of Counting}
+
+\begin{rules}[The Rule of Sum]
+\label{SumRule}
+    If a first task can be performed in $m$ ways, while second task can be performed in $n$ ways, and occurrence of the two tasks is distinct, then performing task can be accomplished in any one of $m+n$ ways.
+\end{rules}
+
+\begin{example}
+    If a math student has 2 books on Analysis and 3 books on Geometry then by the Rule \ref{SumRule} the student can recommend 5 books to her friend.
+\end{example}
+
+\begin{example} 
+    If there are two math students, and first student has 3 books on linear algebra and second student has 4 books on the same topic, then the maximum number of different books on this topic, say $n$, is between $4 \leq n \leq 7$, since two students may have the same books.  
+\end{example}
+
+\begin{rules}[The Rule of Product]
+\label{ProductRule}
+    If a procedure can be broken down into first and second stages, and if there are $m$ possible outcomes for the first stage and if, for each of these outcomes, there are $n$ possible outcomes for the second stage, then the total procedure can be carried out, in the designated order, $mn$ ways.
+\end{rules}
+
+\begin{example}
+    There are 6 kinds of muffins, 8 of sandwiches, 2 of hot beverages and 3 of cold beverages. One may want to eat either a muffin and a hot beverage or a sandwich and a cold beverages for lunch. By the Rule \ref{ProductRule}, for a muffin and a hot beverage, there are $6 \times 2=12$ possibilities and for a sandwich and a cold beverage there are $8\times3=24$. And by the Rule \ref{SumRule} there are totally $12+24=36$ options.
+\end{example}
+
+\section{Permutations}
+
+Continuing to examine applications of the rule of products. Counting linear arrangements of distinct objects is often called \textit{permutation}.
+
+\begin{definition}
+    For an integer $n\geq0$, n factorial is defined by
+    \begin{align*}
+        0!&=1 \\
+        n!&=n(n-1)(n-2)\dots1 \ \text{for} \ n \geq 1
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    Given a collection of $n$ distinct objects, any linear arrangement of these objects is called a permutation of the collection.
+\end{definition}
+
+\begin{theorem}
+    If there are $n$ distinct objects and $r$ is an integer, with $ 1 \leq r \leq n$, then the number of permutations of size-$r$ for the $n$ objects $P(n, r)$ is
+    $$P(n, r) = n(n-1)\dots(n-r+1)$$
+\end{theorem}
+
+\begin{corollary}
+    if $n$ and $r$ are integers, with $0 \leq r \leq n$, then
+    $$ P(n,r) = \frac{n!}{(n-r)!} $$
+\end{corollary}
+
+\begin{example}
+    The number of permutations of the letters in the word COMPUTER is $8!$, since $r=8$. If only five of the letters are allowed, then the number of permutations of size-5 is $P(8,5)=\frac{8!}{3!}$. If repetitions of letters are allowed tehn the number of possible 12-letter sequence is $8^{12}$.
+\end{example}
+
+\begin{example}
+    Consider the linear arrangements of all nine letters in DATABASES. In order to apply permutation, we have to distinct the repeated letters. Hence, we assign indexes to each A and S such that $A_1, A_2, A_3$ and $S_1, S_2$. Then, there are $9!$ sequences. But in this problem, there should be no differences between, say, sequence $DA_1TA_2BA_3S_1ES_2$ and sequence $DA_2TA_3BA_1S_2ES_1$. Now, since all letters of A and S, respectively, can be arranged in $3!$ and $2!$ sequences, we have,
+    \begin{multline*}
+    3! \cdot 2! \cdot (\text{number of arrangement of letters in DATABASES})\\ 
+    = \text{permutations of} D,A_1,T,A_2,B,A_3,S_1,E,S_2
+    \end{multline*}
+    Therefore, the answer is 
+    $$\frac{9!}{3! \cdot 2!}.$$
+\end{example}
+
+Now, we come up with an important theorem.
+
+\begin{theorem}
+    If there are n objects with $n_i$ indistinguishable objects of a $i^{th}$ type, for $i= \{1, 2, \dots, r \} $, where $n_1+n_2+\dots+n_r=n$,  then there are 
+    $$
+    \frac{n!}{n_1! \cdot n_2! \cdot, \dots, \cdot n_r!}
+    $$
+    linear arrangements of the given n objects.
+\end{theorem}
+
+\begin{example}
+    Possible linear arrangements og the letters in MASSASAUGA is
+    $$
+    = \frac{10!}{4!\cdot3!\cdot 1!\cdot 1!\cdot 1!}.
+    $$
+    Moreover, if we consider that all A's are together, we should consider A's as a one object, then the possible arrangements becomes
+    $$
+    = \frac{7!}{3!\cdot 1!\cdot 1!\cdot 1! \cdot 1!}.
+    $$
+\end{example}
+
+\begin{example}
+    Determine the number of stair paths in the $xy-$plane from $(2, 1)$ to $(7, 4)$, where each such paths is made up of individual steps going one unit to right or up.
+    \begin{figure}[h]
+    \centering
+    \includegraphics{DiscerteteImg/fig1a.png}
+    \includegraphics{DiscerteteImg/fig1b.png}
+    \caption{Snake}
+    \label{fig:snake}
+    \end{figure}
+
+The overall trip from $(2, 1)$ to $(7, 4)$ requires $7-2=5$ moves to the right and $4-1=3$ moves upward. Therefore we have two sets with $\left| R \right|=5$ and $\left| U \right|=3$ and $\left| R \cup U \right|=8$. Hence the linear arrangement of right and upward movements is given by $8!/(5!\cdot3!)$.
+\end{example}
+
+\begin{example}
+    Consider the set $S = \{x_1, x_1, x_2, x_2, \dots x_k, x_k\}$ with $\left| S \right| = n$. The number of linear arrangements of the elements of $S$ is given by $n!/2!^k$.
+    By the properties of $S$, we have $n=2k$, and the number of the permutations is an integer. Therefore we have prove that
+    
+    \textit{If $n$ and $k$ are positive integers with $n=2k$, then
+    $$
+    \frac{n!}{2^k}
+    $$
+    is an integer.}
+
+    This is an example of the proof type called \textit{combinatorial proof}.
+\end{example}
+
+\begin{example}
+    Now, this example is not an linear arrangement, rather, it is a circular arrangement. Let's $n$ people, designated as $a_1, a_2, \dots, a_n$ be seated about a round table. How many circular arrangements are possible, if arrangements are considered the same when one of them can be obtained from the other by rotation?
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=2.5]{DiscerteteImg/fig2a.png}
+        \caption{Circular Arrangement}
+        \label{fig:Circular_Arrangement}
+    \end{figure}
+    We shall try to relate this problem with linear arrangement. Consider the distinct linear arrangements $a_1a_2\dots a_n$ and $a_2a_3\dots a_na_1$, which correspond to the same circular arrangement, since the latter is obtained from counter clockwise rotation of the former. Then we can observe that for a given unique circular arrangement there are $n$ linear arrangements. Therefore we have:
+    $$
+        n \times \text{(Number of Circular Arrangements)} =
+        \text{(Number of Linear Arrangements)} = \\ n!
+    $$
+    Hence the solution is given by
+    $$
+    \frac{n!}{n} \ .
+    $$
+\end{example}
+
+\begin{example}
+    Let's there be 3 man and 3 woman that are going to be seated around a table so that the sexes alternate, i.e. no two men or women seated next to each other. How many arrangement can be done with this property?
+    Choose a gender, say female, and a seat the chosen gender to a specific chair, say A. Since selection is done in such a way, after now we arrange the objects in linear manner. Then by counting clockwise, a male should be seated to B which can be filled in 3 ways, and C in 2 ways, and so on \dots Therefore we get $3\times 2 \times 2 \times 1 \times 1 = 12$ arrangements.
+\end{example}
+
+\section{Combination}
+
+
+As we learn previously, if the $r$ elements of set $S = \{a_1, a_2, \dots , a_n \}$ are linearly arranged, where $0 \leq r \leq n$, there are $P(n, r)$ arrangements.
+
+Now, consider that $r$ of $n$ elements are going to be \textit{chosen} or \textit{selected} so that the arrangement or the order is not important. For in all possible $r-$size sequences there are $r!$ sequences consists wholly of the exact same elements, since a $r-$size sequence can be rearranged in $r!$ ways. Therefore, in mathematically, we have:
+$$
+r! \times (\text{Number of selection of } r-\text{size sequence}) = (\text{Number of } r-\text{size linear arrangements}) = P(n, r).
+$$
+Hence, we get:
+$$
+\text{Number of selection of } r-\text{size sequence} = \frac{P(n, r)}{r!}.
+$$
+Therefore we have reached an important definition:
+
+\begin{definition}[Combination]
+    Let $S$ be a set consists of $n$ distinct elements. If $r$ elements of the set $S$ is chosen with no reference to order, we call that CART CURT. And the number of combination is given by:
+    $$
+    C(n, r) = \frac{P(n, r)}{r!} = \frac{n!}{r! \cdot (n-r)!} \ \ \ \text{for} \ \  0\leq r \leq n,
+    $$
+    where $C(n, r)$, or frequently used as $\left(\frac{n}{r}\right)$, is read as "$n$ choose $r$".
+\end{definition}
+
+It can be easily observe that we have such identities:
+
+SAYFA 36'DAN DEVAM.
+
+
+
